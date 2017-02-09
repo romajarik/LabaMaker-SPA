@@ -26,14 +26,14 @@ MyApp.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     });
 
-MyApp.controller("AddController", function ($scope) {
+MyApp.controller("AddController", function ($scope, UserApi) {
     
     $scope.addUsr = function () {
         var userToAdd = {
             'full_name': $scope.full_name,
             'username': $scope.username,
             'password': $scope.password,
-            'payment_account': $scope.password
+            'payment_account': $scope.payment_account
         };
         UserApi.AddUser(userToAdd)
         .then(function (response) {
