@@ -28,7 +28,7 @@ UserService.factory('UserApi', function ($http) {
 
         var request = $http({
             method: 'delete',
-            url: urlBase + '/Users' + userIdToDelete.id
+            url: urlBase + '/Users/' + userIdToDelete.id
         });
         return request;
     };
