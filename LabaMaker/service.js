@@ -13,5 +13,25 @@ UserService.factory('UserApi', function ($http) {
     UserApi.AddUser = function (user) {
         return $http.post(urlBase + '/Users', user);
     };
+
+    UserApi.EditUser = function (userToUpdate) {
+
+        var request = $http({
+            method: 'put',
+            url: urlBase + '/Users/' + userToUpdate.id,
+            data: userToUpdate
+        });
+        return request;
+    };
+
+    UserApi.DeleteUser = function (userIdToDelete) {
+
+        var request = $http({
+            method: 'delete',
+            url: urlBase + '/Users' + userIdToDelete.id
+        });
+        return request;
+    };
+
     return UserApi;
 });
